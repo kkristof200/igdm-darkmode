@@ -13,8 +13,8 @@
     "lint-main": "eslint --fix --ext .js ./main/",
     "lint": "npm run lint-browser && npm run lint-main",
     "start": "gulp",
-    "pack": "gulp build && build --dir",
-    "dist": "gulp build && build -mwl --x64"
+    "pack": "gulp build && electron-builder --dir",
+    "dist": "gulp build && electron-builder -mwl --x64"
   },
   "repository": {
     "type": "git",
@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "electron": "^3.0.16",
-    "electron-builder": "^20.44.4",
+    "electron-builder": "^22.6.0",
     "electron-builder-lib": "20.23.1",
     "electron-builder-squirrel-windows": "20.29.0",
     "eslint": "^6.8.0",
@@ -59,39 +59,24 @@
     "popper.js": "^1.14.7"
   },
   "build": {
-    "publish": [
-      {
-        "provider": "github",
-        "owner": "ifedapoolarewaju",
-        "repo": "igdm"
-      }
-    ],
-    "appId": "com.ifedapoolarewaju.desktop.igdm",
-    "copyright": "ifedapo Olarewaju 2018",
     "mac": {
       "target": [
         "dmg",
         "zip"
-      ],
-      "publish": "github",
-      "category": "public.app-category.social-networking"
+      ]
     },
     "win": {
       "target": [
         "nsis",
         "portable"
-      ],
-      "publish": "github",
-      "publisherName": "ifedapoolarewaju"
+      ]
     },
     "linux": {
       "target": [
         "AppImage",
         "zip",
         "deb"
-      ],
-      "publish": "github",
-      "maintainer": "Ifedapo Olarewaju <ifedapoolarewaju@gmail.com>"
+      ]
     }
   }
 }
